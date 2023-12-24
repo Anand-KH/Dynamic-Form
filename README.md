@@ -46,5 +46,5 @@ Upon entering an incorrect value, the pattern validation error displays as depic
 The data review post-field entry will be displayed as illustrated in the image below.
 ![img](/src/assets/Review.png)
 
-After reviewing the data, users can either modify values by navigating back or proceed by clicking "Submit." After clicking "Submit," they'll be directed to a success page and can return to submit another form, as depicted in the image below.
+After reviewing the data, users can either modify values by navigating back or proceed by clicking `Submit`. After clicking `Submit`, they'll be directed to a success page and can return to submit another form, as depicted in the image below.
 ![Alt text](/src/assets/Submit%20Form.png)
