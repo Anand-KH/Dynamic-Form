@@ -12,12 +12,8 @@ import { JsonServiceService } from '../../service/json-service.service';
 export class DynamicFormComponent implements OnInit {
   formdata: any;
   showPersonalFormData = true;
-  disableNextButton = true;
-  inputName: any[] = [];
-  errorText = false;
   form!: FormGroup;
   companyForm!: FormGroup;
-  current = 0;
   fullName: any;
   dob: any;
   gender: any;
