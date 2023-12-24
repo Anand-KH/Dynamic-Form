@@ -111,7 +111,7 @@ export class DynamicFormComponent implements OnInit {
         'Please fill all the mandatory details or enter valid input',
         { nzDuration: 10000 }
       );
-      this.form.markAllAsTouched();
+      this.companyForm.markAllAsTouched();
       this.showPersonalFormData = false;
       this.reviewForm = false;
     } else {

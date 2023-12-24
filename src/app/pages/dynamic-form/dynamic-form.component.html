@@ -394,19 +394,20 @@
                 </nz-select>
                 <div
                   *ngIf="
-                    form.get(item.name)?.invalid &&
-                    (form.get(item.name)?.dirty || form.get(item.name)?.touched)
+                    companyForm.get(item.name)?.invalid &&
+                    (companyForm.get(item.name)?.dirty ||
+                      companyForm.get(item.name)?.touched)
                   "
                 >
                   <p
                     class="textRed"
-                    *ngIf="form.get(item.name)?.hasError('required')"
+                    *ngIf="companyForm.get(item.name)?.hasError('required')"
                   >
                     {{ item.label }} is required
                   </p>
                   <p
                     class="textRed"
-                    *ngIf="form.get(item.name)?.hasError('pattern')"
+                    *ngIf="companyForm.get(item.name)?.hasError('pattern')"
                   >
                     Please enter valid {{ item.label }}
                   </p>
@@ -426,19 +427,20 @@
                 ></nz-date-picker>
                 <div
                   *ngIf="
-                    form.get(item.name)?.invalid &&
-                    (form.get(item.name)?.dirty || form.get(item.name)?.touched)
+                    companyForm.get(item.name)?.invalid &&
+                    (companyForm.get(item.name)?.dirty ||
+                      companyForm.get(item.name)?.touched)
                   "
                 >
                   <p
                     class="textRed"
-                    *ngIf="form.get(item.name)?.hasError('required')"
+                    *ngIf="companyForm.get(item.name)?.hasError('required')"
                   >
                     {{ item.label }} is required
                   </p>
                   <p
                     class="textRed"
-                    *ngIf="form.get(item.name)?.hasError('pattern')"
+                    *ngIf="companyForm.get(item.name)?.hasError('pattern')"
                   >
                     Please enter valid {{ item.label }}
                   </p>

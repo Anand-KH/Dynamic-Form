@@ -28,4 +28,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ### Screen Shots
 
+Images of Forms before validation
 ![img](/src/assets/Dynamic%20Form1.png)
+![img](/src/assets/Dynamic%20Form2.png)
+
+When clicked on Next or Submit without entering the rqeuired fields
+![img](/src/assets/Required%20Fields1.png)
+![img](/src/assets/Required%20Fields2.png)
