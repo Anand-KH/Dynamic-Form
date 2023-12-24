@@ -26,7 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-### Screen Shots
+## Screen Shots
 
 Images of Forms before validation
 ![img](/src/assets/Dynamic%20Form1.png)
@@ -35,3 +35,12 @@ Images of Forms before validation
 When clicked on Next or Submit without entering the rqeuired fields
 ![img](/src/assets/Required%20Fields1.png)
 ![img](/src/assets/Required%20Fields2.png)
+
+When entered wrong value
+![img](/src/assets/Pattern%20Validation.png)
+
+Review of the data after enterng the fields
+![img](/src/assets/Review.png)
+
+After reviewing the data can go back and change the value or can clickon the Submit. After clicking on the submit a form submitted successfully popup message will show and form will be reset, as shown in below image.
+![Alt text](/src/assets/Submit%20Form.png)
