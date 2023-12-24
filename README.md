@@ -28,7 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Dependencies
 
-Integrate the Ant Design look and feel in Angular using the `ng-zorro-antd` package. Explore their [documentation](https://github.com/NG-ZORRO/ng-zorro-antd) for detailed implementation steps and usage guidelines.
+Integrate the Ant Design for look and feel in Angular using the `ng-zorro-antd` package. Explore their [documentation](https://github.com/NG-ZORRO/ng-zorro-antd) for detailed implementation steps and usage guidelines.
 
 ## Screen Shots
 
