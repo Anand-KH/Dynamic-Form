@@ -32,19 +32,19 @@ Integrate the Ant Design for look and feel in Angular using the `ng-zorro-antd` 
 
 ## Screen Shots
 
-Images of Forms before validation
+Displayed below are pre-validation forms, as depicted in the image.
 ![img](/src/assets/Dynamic%20Form1.png)
 ![img](/src/assets/Dynamic%20Form2.png)
 
-When clicked on Next or Submit without entering the rqeuired fields
+When "Next" or "Submit" is clicked without entering the required fields, validation triggers. Refer to the images displayed below.
 ![img](/src/assets/Required%20Fields1.png)
 ![img](/src/assets/Required%20Fields2.png)
 
-When entered wrong value
+Upon entering an incorrect value, the pattern validation error displays as depicted in the image below.
 ![img](/src/assets/Pattern%20Validation.png)
 
-Review of the data after enterng the fields
+The data review post-field entry will be displayed as illustrated in the image below.
 ![img](/src/assets/Review.png)
 
-After reviewing the data can go back and change the value or can clickon the Submit. After clicking on the submit a form submitted successfully popup message will show and form will be reset, as shown in below image.
+After reviewing the data, users can either modify values by navigating back or proceed by clicking "Submit." After clicking "Submit," they'll be directed to a success page and can return to submit another form, as depicted in the image below.
 ![Alt text](/src/assets/Submit%20Form.png)

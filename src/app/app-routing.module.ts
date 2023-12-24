@@ -9,6 +9,11 @@ const routes: Routes = [
         (m) => m.DynamicFormModule
       ),
   },
+  {
+    path: 'submissionSuccess',
+    loadChildren: () =>
+      import('./pages/result/result.module').then((m) => m.ResultModule),
+  },
 ];
 
 @NgModule({

@@ -318,12 +318,20 @@
   <div class="marginTop" *ngIf="reviewForm === true">
     <h2>Review:</h2>
     <div class="paddingLeft">
-      <h3><span class="boldFont">Name:</span> {{ fullName }}</h3>
-      <h3><span class="boldFont">DOB:</span> {{ dob | date : "short" }}</h3>
-      <h3><span class="boldFont">Gender:</span> {{ gender }}</h3>
-      <h3><span class="boldFont">Interests:</span> {{ interestlist }}</h3>
-      <h3><span class="boldFont">State:</span> {{ state }}</h3>
-      <h3><span class="boldFont">Skills:</span> {{ skills }}</h3>
+      <h3>
+        <span class="boldFont">Name:</span> {{ fullName ? fullName : "-" }}
+      </h3>
+      <h3>
+        <span class="boldFont">DOB:</span>
+        {{ dob ? (dob | date : "short") : "-" }}
+      </h3>
+      <h3><span class="boldFont">Gender:</span> {{ gender ? gender : "-" }}</h3>
+      <h3>
+        <span class="boldFont">Interests:</span>
+        {{ interestlist ? interestlist : "-" }}
+      </h3>
+      <h3><span class="boldFont">State:</span> {{ state ? state : "-" }}</h3>
+      <h3><span class="boldFont">Skills:</span> {{ skills ? skills : "-" }}</h3>
       <h3>
         <span class="boldFont">Date of Joining:</span>
         {{ doj | date : "short" }}

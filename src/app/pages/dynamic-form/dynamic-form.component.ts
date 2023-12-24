@@ -3,6 +3,7 @@ import data from '../../../assets/form.json';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { JsonServiceService } from '../../service/json-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -26,7 +27,8 @@ export class DynamicFormComponent implements OnInit {
   constructor(
     private message: NzMessageService,
     private fb: FormBuilder,
-    private jsonService: JsonServiceService
+    private jsonService: JsonServiceService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -143,10 +145,6 @@ export class DynamicFormComponent implements OnInit {
   }
   //submit the form and reset the form
   submit() {
-    this.message.success('Form Submitted Successfully', { nzDuration: 10000 });
-    this.form.reset();
-    this.companyForm.reset();
-    this.showPersonalFormData = true;
-    this.reviewForm = false;
+    this.router.navigate(['submissionSuccess']);
   }
 }
