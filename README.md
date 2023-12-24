@@ -28,4 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ### Screen Shots
 
-![img](/src/assets/Screenshot%201.png "Screenshot 1")
+![img](/src/assets/Dynamic%20Form1.png)
