@@ -26,6 +26,10 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
+## Dependencies
+
+Integrate the Ant Design look and feel in Angular using the `ng-zorro-antd` package. Explore their [documentation](https://github.com/NG-ZORRO/ng-zorro-antd) for detailed implementation steps and usage guidelines.
+
 ## Screen Shots
 
 Images of Forms before validation
