@@ -1,0 +1,495 @@
+<div class="container">
+  <!-- <div *ngIf="showPersonalFormData === true">
+    <div *ngFor="let item of formdata.formFields">
+      <h3>{{ item.label }}</h3>
+      <div nz-row [nzGutter]="16">
+        <div nz-col nzSpan="12" *ngFor="let data of item.fields">
+          <div [ngSwitch]="data.type">
+            <nz-form-item *ngSwitchCase="'text'">
+              <nz-form-control>
+                <nz-form-label [nzRequired]="data?.validations?.isRequired">
+                  {{ data.label }}
+                </nz-form-label>
+                <input
+                  type="text"
+                  nz-input
+                  [(ngModel)]="data.value"
+                  [placeholder]="data.placeholder"
+                  (ngModelChange)="
+                    inputtextChange(data.validations.pattern, data.name, $event)
+                  "
+                  class="formWidth"
+                />
+                <div
+                  *ngIf="inputName.includes(data.name) && errorText === true"
+                >
+                  <p class="textRed">
+                    Only alphabets are allowed with no spaces
+                  </p>
+                </div>
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item *ngSwitchCase="'date'">
+              <nz-form-control>
+                <nz-form-label [nzRequired]="data?.validations?.isRequired">
+                  {{ data.label }}
+                </nz-form-label>
+                <nz-date-picker
+                  [(ngModel)]="data.value"
+                  (ngModelChange)="onChange($event)"
+                  class="formWidth"
+                ></nz-date-picker>
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item *ngSwitchCase="'radio'">
+              <nz-form-control>
+                <nz-form-label [nzRequired]="data?.validations?.isRequired">
+                  {{ data.label }}
+                </nz-form-label>
+                <nz-radio-group [(ngModel)]="data.value" class="formWidth">
+                  <label
+                    nz-radio
+                    *ngFor="let options of data.options"
+                    [nzValue]="options.value"
+                  >
+                    {{ options.label }}
+                  </label>
+                </nz-radio-group>
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item *ngSwitchCase="'checkbox'">
+              <nz-form-control>
+                <nz-form-label [nzRequired]="data?.validations?.isRequired">
+                  {{ data.label }}
+                </nz-form-label>
+                <nz-checkbox-group
+                  [(ngModel)]="data.options"
+                  class="formWidth"
+                ></nz-checkbox-group>
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item *ngSwitchCase="'select'">
+              <nz-form-control>
+                <nz-form-label [nzRequired]="data?.validations?.isRequired">
+                  {{ data.label }}
+                </nz-form-label>
+                <nz-select
+                  class="formWidth"
+                  [nzPlaceHolder]="data.label"
+                  [(ngModel)]="data.value"
+                >
+                  <nz-option
+                    *ngFor="let option of data.options"
+                    [nzLabel]="option.value"
+                    [nzValue]="option.label"
+                  ></nz-option>
+                </nz-select>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      nz-button
+      nzType="primary"
+      type="submit"
+      (click)="next()"
+      style="float: right"
+    >
+      Next
+    </button>
+  </div>
+  <div *ngIf="showPersonalFormData === false">
+    <h3>{{ formdata.label }}</h3>
+    <div nz-row [nzGutter]="16">
+      <div nz-col nzSpan="12" *ngFor="let item of formdata.fields">
+        <nz-form-item *ngIf="item.type === 'select'">
+          <nz-form-control>
+            <nz-form-label [nzRequired]="item?.validations?.isRequired">
+              {{ item.label }}
+            </nz-form-label>
+            <nz-select
+              class="formWidth"
+              [nzPlaceHolder]="item.label"
+              [(ngModel)]="item.value"
+            >
+              <nz-option
+                *ngFor="let option of item.options"
+                [nzLabel]="option.value"
+                [nzValue]="option.label"
+              ></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item *ngIf="item.type === 'date'">
+          <nz-form-control>
+            <nz-form-label [nzRequired]="item?.validations?.isRequired">
+              {{ item.label }}
+            </nz-form-label>
+            <nz-date-picker
+              [(ngModel)]="item.value"
+              (ngModelChange)="onChange($event)"
+              class="formWidth"
+            ></nz-date-picker>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+    <div>
+      <button nz-button nzType="primary" (click)="save()" style="float: right">
+        Submit
+      </button>
+    </div>
+  </div> -->
+
+  <div *ngIf="reviewForm === false">
+    <h2>{{ formdata.title }}</h2>
+    <form
+      [formGroup]="form"
+      (ngSubmit)="submitForm()"
+      *ngIf="showPersonalFormData === true"
+    >
+      <div *ngFor="let group of formdata?.formFields">
+        <h3>{{ group.label }}</h3>
+        <div nz-row [nzGutter]="16">
+          <div
+            nz-col
+            [nzLg]="12"
+            [nzMd]="12"
+            [nzSm]="24"
+            [nzXs]="24"
+            *ngFor="let data of group?.fields"
+          >
+            <div [ngSwitch]="data.type">
+              <nz-form-item *ngSwitchCase="'text'">
+                <nz-form-control>
+                  <nz-form-label [nzRequired]="data?.validations?.isRequired">
+                    {{ data.label }}
+                  </nz-form-label>
+                  <input
+                    type="text"
+                    nz-input
+                    [formControlName]="data.name"
+                    [placeholder]="data.placeholder"
+                    class="formWidth"
+                  />
+                  <div
+                    *ngIf="
+                      form.get(data.name)?.invalid &&
+                      (form.get(data.name)?.dirty ||
+                        form.get(data.name)?.touched)
+                    "
+                  >
+                    <p
+                      class="textRed"
+                      *ngIf="form.get(data.name)?.hasError('required')"
+                    >
+                      {{ data.label }} is required
+                    </p>
+                    <p
+                      class="textRed"
+                      *ngIf="form.get(data.name)?.hasError('pattern')"
+                    >
+                      Please enter valid {{ data.label }}
+                    </p>
+                  </div>
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item *ngSwitchCase="'date'">
+                <nz-form-control>
+                  <nz-form-label [nzRequired]="data?.validations?.isRequired">
+                    {{ data.label }}
+                  </nz-form-label>
+                  <nz-date-picker
+                    [formControlName]="data.name"
+                    (ngModelChange)="onChange($event)"
+                    class="formWidth"
+                  ></nz-date-picker>
+                  <div
+                    *ngIf="
+                      form.get(data.name)?.invalid &&
+                      (form.get(data.name)?.dirty ||
+                        form.get(data.name)?.touched)
+                    "
+                  >
+                    <p
+                      class="textRed"
+                      *ngIf="form.get(data.name)?.hasError('required')"
+                    >
+                      {{ data.label }} is required
+                    </p>
+                    <p
+                      class="textRed"
+                      *ngIf="form.get(data.name)?.hasError('pattern')"
+                    >
+                      Please enter valid {{ data.label }}
+                    </p>
+                  </div>
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item *ngSwitchCase="'radio'">
+                <nz-form-control>
+                  <nz-form-label [nzRequired]="data?.validations?.isRequired">
+                    {{ data.label }}
+                  </nz-form-label>
+                  <nz-radio-group
+                    [formControlName]="data.name"
+                    class="formWidth"
+                  >
+                    <label
+                      nz-radio
+                      *ngFor="let options of data.options"
+                      [nzValue]="options.value"
+                    >
+                      {{ options.label }}
+                    </label>
+                  </nz-radio-group>
+                  <div
+                    *ngIf="
+                      form.get(data.name)?.invalid &&
+                      (form.get(data.name)?.dirty ||
+                        form.get(data.name)?.touched)
+                    "
+                  >
+                    <p
+                      class="textRed"
+                      *ngIf="form.get(data.name)?.hasError('required')"
+                    >
+                      {{ data.label }} is required
+                    </p>
+                    <p
+                      class="textRed"
+                      *ngIf="form.get(data.name)?.hasError('pattern')"
+                    >
+                      Please enter valid {{ data.label }}
+                    </p>
+                  </div>
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item *ngSwitchCase="'checkbox'">
+                <nz-form-control>
+                  <nz-form-label [nzRequired]="data?.validations?.isRequired">
+                    {{ data.label }}
+                  </nz-form-label>
+
+                  <div [formGroup]="$any(form.get(data.name))">
+                    <div *ngFor="let option of data.options">
+                      <label nz-checkbox [formControlName]="option.value">{{
+                        option.label
+                      }}</label>
+                    </div>
+                  </div>
+                  <div
+                    *ngIf="
+                      form.get(data.name)?.invalid &&
+                      (form.get(data.name)?.dirty ||
+                        form.get(data.name)?.touched)
+                    "
+                  >
+                    <p
+                      class="textRed"
+                      *ngIf="form.get(data.name)?.hasError('required')"
+                    >
+                      {{ data.label }} is required
+                    </p>
+                    <p
+                      class="textRed"
+                      *ngIf="form.get(data.name)?.hasError('pattern')"
+                    >
+                      Please enter valid {{ data.label }}
+                    </p>
+                  </div>
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item *ngSwitchCase="'select'">
+                <nz-form-control>
+                  <nz-form-label [nzRequired]="data?.validations?.isRequired">
+                    {{ data.label }}
+                  </nz-form-label>
+                  <nz-select
+                    class="formWidth"
+                    [nzPlaceHolder]="data.label"
+                    [formControlName]="data.name"
+                  >
+                    <nz-option
+                      *ngFor="let option of data.options"
+                      [nzLabel]="option.value"
+                      [nzValue]="option.label"
+                    ></nz-option>
+                  </nz-select>
+                  <div
+                    *ngIf="
+                      form.get(data.name)?.invalid &&
+                      (form.get(data.name)?.dirty ||
+                        form.get(data.name)?.touched)
+                    "
+                  >
+                    <p
+                      class="textRed"
+                      *ngIf="form.get(data.name)?.hasError('required')"
+                    >
+                      {{ data.label }} is required
+                    </p>
+                    <p
+                      class="textRed"
+                      *ngIf="form.get(data.name)?.hasError('pattern')"
+                    >
+                      Please enter valid {{ data.label }}
+                    </p>
+                  </div>
+                </nz-form-control>
+              </nz-form-item>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; float: right">
+        <button nz-button nzType="primary" type="submit">Next</button>
+      </div>
+
+      <!-- <button type="submit">Submit</button> -->
+    </form>
+    <form
+      [formGroup]="companyForm"
+      (ngSubmit)="submitForm1()"
+      *ngIf="showPersonalFormData === false"
+    >
+      <h3>{{ formdata.label }}</h3>
+      <div nz-row [nzGutter]="16">
+        <div
+          nz-col
+          [nzLg]="12"
+          [nzMd]="12"
+          [nzSm]="24"
+          [nzXs]="24"
+          *ngFor="let item of formdata?.fields"
+        >
+          <div [ngSwitch]="item.type">
+            <nz-form-item *ngSwitchCase="'select'">
+              <nz-form-control>
+                <nz-form-label [nzRequired]="item?.validations?.isRequired">
+                  {{ item.label }}
+                </nz-form-label>
+                <nz-select
+                  class="formWidth"
+                  [nzPlaceHolder]="item.label"
+                  [formControlName]="item.name"
+                >
+                  <nz-option
+                    *ngFor="let option of item.options"
+                    [nzLabel]="option.value"
+                    [nzValue]="option.label"
+                  ></nz-option>
+                </nz-select>
+                <div
+                  *ngIf="
+                    form.get(item.name)?.invalid &&
+                    (form.get(item.name)?.dirty || form.get(item.name)?.touched)
+                  "
+                >
+                  <p
+                    class="textRed"
+                    *ngIf="form.get(item.name)?.hasError('required')"
+                  >
+                    {{ item.label }} is required
+                  </p>
+                  <p
+                    class="textRed"
+                    *ngIf="form.get(item.name)?.hasError('pattern')"
+                  >
+                    Please enter valid {{ item.label }}
+                  </p>
+                </div>
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item *ngSwitchCase="'date'">
+              <nz-form-control>
+                <nz-form-label [nzRequired]="item?.validations?.isRequired">
+                  {{ item.label }}
+                </nz-form-label>
+                <nz-date-picker
+                  (ngModelChange)="onChange($event)"
+                  [formControlName]="item.name"
+                  class="formWidth"
+                ></nz-date-picker>
+                <div
+                  *ngIf="
+                    form.get(item.name)?.invalid &&
+                    (form.get(item.name)?.dirty || form.get(item.name)?.touched)
+                  "
+                >
+                  <p
+                    class="textRed"
+                    *ngIf="form.get(item.name)?.hasError('required')"
+                  >
+                    {{ item.label }} is required
+                  </p>
+                  <p
+                    class="textRed"
+                    *ngIf="form.get(item.name)?.hasError('pattern')"
+                  >
+                    Please enter valid {{ item.label }}
+                  </p>
+                </div>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; float: right">
+        <button
+          nz-button
+          nzType="primary"
+          (click)="previousStep()"
+          style="margin-right: 20px"
+        >
+          Previous
+        </button>
+        <button nz-button nzType="primary" type="submit">Review</button>
+      </div>
+    </form>
+  </div>
+  <div style="margin-top: 20px" *ngIf="reviewForm === true">
+    <h2>Review:</h2>
+    <div style="padding-left: 60px">
+      <h3><span style="font-weight: bold">Name:</span> {{ fullName }}</h3>
+      <h3>
+        <span style="font-weight: bold">DOB:</span> {{ dob | date : "short" }}
+      </h3>
+      <h3><span style="font-weight: bold">Gender:</span> {{ gender }}</h3>
+      <h3>
+        <span style="font-weight: bold">Interests:</span> {{ interestlist }}
+      </h3>
+      <h3><span style="font-weight: bold">State:</span> {{ state }}</h3>
+      <h3><span style="font-weight: bold">Skills:</span> {{ skills }}</h3>
+      <h3>
+        <span style="font-weight: bold">Date of Joining:</span>
+        {{ doj | date : "short" }}
+      </h3>
+    </div>
+    <div style="display: flex; float: right">
+      <button
+        nz-button
+        nzType="primary"
+        style="margin-right: 20px"
+        (click)="previousTocompanyForm()"
+      >
+        Previous
+      </button>
+      <button nz-button nzType="primary" (click)="submit()">Submit</button>
+    </div>
+  </div>
+</div>
